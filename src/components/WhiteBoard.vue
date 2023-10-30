@@ -28,7 +28,7 @@ export default {
     },
   },
   methods: {
-    deletePostIt(index: any) {
+    deletePostIt(index: number) {
       this.$store.commit("removePostIt", index);
     },
   },
