@@ -8,6 +8,12 @@
       <div v-for="(postIts, index) in postIt" :key="index" class="col-md-4">
         <div class="d-flex justify-content-center align-items-center">
           <textarea type="text" class="post-it">{{ postIts }}</textarea>
+          <button
+            @click="deletePostIt(index)"
+            class="btn btn-danger btn-sm ml-2"
+          >
+            X
+          </button>
         </div>
       </div>
     </div>
@@ -19,6 +25,11 @@ export default {
   computed: {
     postIt() {
       return this.$store.getters.NewPostIt;
+    },
+  },
+  methods: {
+    deletePostIt(index: any) {
+      this.$store.commit("removePostIt", index);
     },
   },
 };
