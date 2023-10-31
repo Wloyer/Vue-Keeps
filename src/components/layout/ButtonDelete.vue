@@ -3,12 +3,13 @@
 </template>
 
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   props: { index: Number },
   methods: {
     deleteSelf() {
       this.$emit("delete", this.index);
     },
   },
-};
+});
 </script>

@@ -1,9 +1,9 @@
 <template>
-  <div class="titre container">
+  <div class="postit-titre container">
     <h1>Vos post-it :</h1>
   </div>
   <PostIt isInputMode />
-  <div class="board container mt-5">
+  <div class="postit-board container mt-5">
     <div class="row">
       <div
         v-for="(postItsContent, index) in postIt"
@@ -19,7 +19,8 @@
 <script lang="ts">
 import PostIt from "./layout/PostIt.vue";
 
-export default {
+import { defineComponent } from "vue";
+export default defineComponent({
   components: {
     PostIt,
   },
@@ -28,10 +29,10 @@ export default {
       return this.$store.getters.GetPostIt;
     },
   },
-};
+});
 </script>
 <style scoped>
-.board {
+.postit-board {
   height: 100%;
   width: 100%;
   background-color: whitesmoke;
@@ -39,7 +40,7 @@ export default {
   justify-content: center;
   padding: 50px;
 }
-.titre {
+.postit-titre {
   height: 100%;
   width: 100%;
   display: flex;

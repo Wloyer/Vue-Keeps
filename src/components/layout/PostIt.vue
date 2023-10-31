@@ -1,21 +1,21 @@
 <template>
   <div v-if="isInputMode">
     <form @submit.prevent="actionPostIt">
-      <div class="d-flex justify-content-center align-items-center">
+      <div class="postit-centeredDiv">
         <textarea
           type="text"
           v-model="Input"
-          class="post-it"
+          class="postit-post-it"
           placeholder="Nouveau Post-It"
         />
       </div>
-      <div class="d-flex justify-content-center align-items-center">
+      <div class="postit-centeredDiv">
         <ButtonValidate @validate="actionPostIt"></ButtonValidate>
       </div>
     </form>
   </div>
-  <div v-else class="d-flex justify-content-center align-items-center">
-    <textarea type="text" readonly class="post-it" :value="content" />
+  <div v-else class="postit-centeredDiv">
+    <textarea type="text" readonly class="postit-post-it" :value="content" />
     <ButtonDelete @delete="deletePostIt" :index="index"></ButtonDelete>
   </div>
 </template>
@@ -57,8 +57,13 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-.post-it {
+<style lang="scss" scoped>
+.postit-centeredDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.postit-post-it {
   width: 250px;
   height: 250px;
   background-color: #ffeb3b;
@@ -66,9 +71,6 @@ export default defineComponent({
   padding: 20px;
   font-size: 18px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  margin: 10px;
-}
-.btnCustom {
   margin: 10px;
 }
 </style>
