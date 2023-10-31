@@ -1,16 +1,25 @@
 <template>
-  <The-Form></The-Form>
-  <White-Board></White-Board>
+  <mosaicPostIt></mosaicPostIt>
 </template>
 
 <script lang="ts">
-import TheForm from "../components/layout/TheForm.vue";
-import WhiteBoard from "../components/WhiteBoard.vue";
+import mosaicPostIt from "../components/mosaicPostIt.vue";
+import { defineComponent } from "vue";
 
-export default {
+export default defineComponent({
   components: {
-    TheForm,
-    WhiteBoard,
+    mosaicPostIt,
   },
-};
+  data() {
+    return {
+      Input: "",
+    };
+  },
+  methods: {
+    actionPostIt() {
+      this.$store.commit("addPostIt", this.Input);
+      this.Input = "";
+    },
+  },
+});
 </script>
