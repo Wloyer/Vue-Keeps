@@ -10,7 +10,7 @@ export default createStore({
     postIt: [],
   } as State,
   getters: {
-    NewPostIt(state) {
+    GetPostIt(state) {
       return state.postIt;
     },
   },

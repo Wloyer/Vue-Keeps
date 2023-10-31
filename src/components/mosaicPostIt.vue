@@ -25,7 +25,7 @@ export default {
   },
   computed: {
     postIt() {
-      return this.$store.getters.NewPostIt;
+      return this.$store.getters.GetPostIt;
     },
   },
 };
