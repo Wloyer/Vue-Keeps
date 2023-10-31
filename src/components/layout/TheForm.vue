@@ -18,7 +18,9 @@
   </form>
 </template>
 <script lang="ts">
-export default {
+import { defineComponent } from "vue";
+
+export default defineComponent({
   data() {
     return {
       Input: "",
@@ -30,7 +32,7 @@ export default {
       this.Input = "";
     },
   },
-};
+});
 </script>
 <style scoped>
 .post-it {

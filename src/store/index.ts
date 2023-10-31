@@ -1,19 +1,17 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable prettier/prettier */
 import { createStore } from "vuex";
-type PostItItem = any;
+type PostIt = unknown;
 
 interface State {
-  postIt: PostItItem[];
+  postIt: PostIt[];
 }
 
 export default createStore({
   state: {
-    postIt: []
+    postIt: [],
   } as State,
   getters: {
     NewPostIt(state) {
-      return state.postIt
+      return state.postIt;
     },
   },
   mutations: {
@@ -21,10 +19,9 @@ export default createStore({
       state.postIt.push(payload);
     },
     removePostIt(state, index) {
-      state.postIt.splice(index, 1)
-    }
+      state.postIt.splice(index, 1);
+    },
   },
-  actions: {
-  },
+  actions: {},
   modules: {},
 });
