@@ -2,53 +2,13 @@
   <div class="mosaic__titre mosaic__container">
     <h1>Vos post-it :</h1>
   </div>
-  <PostIt :is-input-mode="true" />
+  <slot name="postItInput"></slot>
   <div class="mosaic__board mosaic__container">
     <div class="mosaic__board-row">
-      <div
-        v-for="(postItsContent, index) in postItList"
-        :key="index"
-        class="col-md-4"
-      >
-        <PostIt :content="postItsContent" />
-      </div>
+      <slot name="postItItems"></slot>
     </div>
   </div>
 </template>
-
-<!-- <script lang="ts">
-import PostIt from "./layout/PostIt.vue";
-
-import { defineComponent } from "vue";
-export default defineComponent({
-  components: {
-    PostIt,
-  },
-  computed: {
-    postItList() {
-      return this.$store.getters.GetPostIt;
-    },
-  },
-});
-</script> -->
-<script setup lang="ts">
-import { computed } from "vue";
-import { useStore } from "vuex";
-
-const store = useStore();
-const postItList = computed(() => store.getters.GetPostIt);
-</script>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-import PostIt from "./layout/PostIt.vue";
-
-export default defineComponent({
-  components: {
-    PostIt,
-  },
-});
-</script>
 
 <style lang="scss" scoped>
 .mosaic {
