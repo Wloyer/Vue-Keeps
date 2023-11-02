@@ -2,7 +2,7 @@
   <div class="mosaic__titre mosaic__container">
     <h1>Vos post-it :</h1>
   </div>
-  <PostIt isInputMode />
+  <PostIt :isInputMode="true" />
   <div class="mosaic__board mosaic__container">
     <div class="mosaic__board-row">
       <div
