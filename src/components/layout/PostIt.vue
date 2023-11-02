@@ -1,21 +1,26 @@
 <template>
   <div v-if="isInputMode">
     <form @submit.prevent="actionPostIt">
-      <div class="postit-centeredDiv">
+      <div class="postit__centeredDiv">
         <textarea
           type="text"
           v-model="Input"
-          class="postit-post-it"
+          class="postit__centeredDiv__textArea"
           placeholder="Nouveau Post-It"
         />
       </div>
-      <div class="postit-centeredDiv">
+      <div class="postit__centeredDiv">
         <ButtonValidate @validate="actionPostIt"></ButtonValidate>
       </div>
     </form>
   </div>
-  <div v-else class="postit-centeredDiv">
-    <textarea type="text" readonly class="postit-post-it" :value="content" />
+  <div v-else class="postit__centeredDiv">
+    <textarea
+      type="text"
+      readonly
+      class="postit__centeredDiv__textArea"
+      :value="content"
+    />
     <ButtonDelete @delete="deletePostIt" :index="index"></ButtonDelete>
   </div>
 </template>
@@ -58,19 +63,20 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-.postit-centeredDiv {
+.postit__centeredDiv {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.postit-post-it {
-  width: 250px;
-  height: 250px;
-  background-color: #ffeb3b;
-  border: none;
-  padding: 20px;
-  font-size: 18px;
-  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
-  margin: 10px;
+
+  &__textArea {
+    width: 250px;
+    height: 250px;
+    background-color: #ffeb3b;
+    border: none;
+    padding: 20px;
+    font-size: 18px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+  }
 }
 </style>

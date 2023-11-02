@@ -1,17 +1,27 @@
 <template>
-  <header>
-    <nav>
-      <h1><router-link to="/">View Keeps</router-link></h1>
-      <ul>
-        <li><router-link to="/">Somthing</router-link></li>
-        <li><router-link to="/">Somthing else</router-link></li>
+  <header class="header">
+    <nav class="header__nav">
+      <h1 class="header__nav__h1">
+        <router-link class="header__nav__h1__a" to="/">View Keeps</router-link>
+      </h1>
+      <ul class="header__nav__ul">
+        <li class="header__nav__ul__li">
+          <router-link class="header__nav__ul__li__a" to="/"
+            >Somthing</router-link
+          >
+        </li>
+        <li class="header__nav__ul__li">
+          <router-link class="header__nav__ul__li__a" to="/"
+            >Somthing else</router-link
+          >
+        </li>
       </ul>
     </nav>
   </header>
 </template>
 
-<style scoped>
-header {
+<style lang="scss" scoped>
+.header {
   width: 100%;
   height: 5rem;
   background-color: white;
@@ -19,55 +29,55 @@ header {
   justify-content: center;
   align-items: center;
   border-bottom: 1px solid #000;
-}
+  &__nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-header a {
-  text-decoration: none;
-  color: black;
-  display: inline-block;
-  padding: 0.75rem 1.5rem;
-  border: 1px solid transparent;
-}
+    &__h1 {
+      &__a {
+        text-decoration: none;
+        color: black;
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        border: 1px solid transparent;
 
-a:active,
-a:hover,
-a.router-link-active {
-  border: 1px solid gray;
-}
+        &:hover,
+        &:active,
+        &.router-link-active {
+          border-color: transparent;
+        }
+      }
+    }
 
-h1 {
-  margin: 0;
-}
+    &__ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
 
-h1 a {
-  color: black;
-  margin: 0;
-}
+      &__li {
+        margin: 0 0.5rem;
 
-h1 a:hover,
-h1 a:active,
-h1 a.router-link-active {
-  border-color: transparent;
-}
+        &__a {
+          text-decoration: none;
+          color: black;
+          display: inline-block;
+          padding: 0.75rem 1.5rem;
+          border: 1px solid transparent;
 
-header nav {
-  width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-li {
-  margin: 0 0.5rem;
+          &:active,
+          &:hover,
+          &.router-link-active {
+            border: 1px solid gray;
+          }
+        }
+      }
+    }
+  }
 }
 </style>

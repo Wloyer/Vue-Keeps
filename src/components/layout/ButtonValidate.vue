@@ -1,9 +1,5 @@
 <template>
-  <button
-    type="button"
-    class="btn btn-warning btnCustom"
-    @click="validateAction"
-  >
+  <button type="button" class="btn btn-warning" @click="validateAction">
     Ajouter
   </button>
 </template>
