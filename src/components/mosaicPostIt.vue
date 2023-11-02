@@ -2,7 +2,7 @@
   <div class="mosaic__titre mosaic__container">
     <h1>Vos post-it :</h1>
   </div>
-  <PostIt :isInputMode="true" />
+  <PostIt :is-input-mode="true" />
   <div class="mosaic__board mosaic__container">
     <div class="mosaic__board-row">
       <div
@@ -10,7 +10,7 @@
         :key="index"
         class="col-md-4"
       >
-        <PostIt :content="postItsContent" :index="index" />
+        <PostIt :content="postItsContent" />
       </div>
     </div>
   </div>

@@ -21,7 +21,7 @@
       class="postit__centeredDiv__textArea"
       :value="content"
     />
-    <ButtonDelete @delete="deletePostIt" :index="index"></ButtonDelete>
+    <ButtonDelete @delete="deleteSelf" :index="index"></ButtonDelete>
   </div>
 </template>
 
@@ -51,8 +51,8 @@ export default defineComponent({
       this.$store.commit("addPostIt", this.Input);
       this.Input = "";
     },
-    deletePostIt(index: number) {
-      this.$store.commit("removePostIt", index);
+    deleteSelf() {
+      this.$store.commit("deletePostIt", this.content);
     },
   },
   components: {

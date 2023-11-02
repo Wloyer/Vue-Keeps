@@ -18,8 +18,11 @@ export default createStore({
     addPostIt(state, payload) {
       state.postIt.push(payload);
     },
-    removePostIt(state, index) {
-      state.postIt.splice(index, 1);
+    deletePostIt(state, content) {
+      const index = state.postIt.findIndex((postIt) => postIt === content);
+      if (index !== -1) {
+        state.postIt.splice(index, 1);
+      }
     },
   },
   actions: {},
