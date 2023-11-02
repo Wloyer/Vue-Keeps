@@ -25,7 +25,39 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
+import { ref } from "vue";
+import { useStore } from "vuex";
+import ButtonValidate from "./ButtonValidate.vue";
+import ButtonDelete from "./ButtonDelete.vue";
+import { defineProps } from "vue";
+
+const props = defineProps({
+  content: {
+    type: String,
+    default: "",
+  },
+  isInputMode: {
+    type: Boolean,
+    default: false,
+  },
+  index: Number,
+});
+const store = useStore();
+// Data
+const Input = ref("");
+// Methods
+const actionPostIt = () => {
+  store.commit("addPostIt", Input.value);
+  Input.value = "";
+};
+
+const deleteSelf = () => {
+  store.commit("deletePostIt", props.content);
+};
+</script>
+
+<!-- <script lang="ts">
 import { defineComponent } from "vue";
 import ButtonValidate from "./ButtonValidate.vue";
 import ButtonDelete from "./ButtonDelete.vue";
@@ -60,7 +92,7 @@ export default defineComponent({
     ButtonDelete,
   },
 });
-</script>
+</script> -->
 
 <style lang="scss" scoped>
 .postit__centeredDiv {

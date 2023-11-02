@@ -4,13 +4,12 @@
   </button>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  methods: {
-    validateAction() {
-      this.$emit("validate");
-    },
-  },
-});
+<script setup lang="ts">
+import { defineEmits } from "vue";
+
+const emit = defineEmits(["validate"]);
+
+const validateAction = () => {
+  emit("validate");
+};
 </script>
