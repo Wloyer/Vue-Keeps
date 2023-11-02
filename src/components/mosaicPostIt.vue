@@ -6,7 +6,7 @@
   <div class="postit-board container mt-5">
     <div class="row">
       <div
-        v-for="(postItsContent, index) in postIt"
+        v-for="(postItsContent, index) in postItList"
         :key="index"
         class="col-md-4"
       >
@@ -25,7 +25,7 @@ export default defineComponent({
     PostIt,
   },
   computed: {
-    postIt() {
+    postItList() {
       return this.$store.getters.GetPostIt;
     },
   },
