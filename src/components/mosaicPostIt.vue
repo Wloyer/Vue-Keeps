@@ -1,10 +1,10 @@
 <template>
-  <div class="postit-titre container">
+  <div class="postit-titre postit-container">
     <h1>Vos post-it :</h1>
   </div>
   <PostIt isInputMode />
-  <div class="postit-board container mt-5">
-    <div class="row">
+  <div class="postit-board postit-container">
+    <div class="postit-board-row">
       <div
         v-for="(postItsContent, index) in postItList"
         :key="index"
@@ -32,6 +32,13 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+.postit-titre {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
 .postit-board {
   height: 100%;
   width: 100%;
@@ -40,11 +47,31 @@ export default defineComponent({
   justify-content: center;
   padding: 50px;
 }
-.postit-titre {
-  height: 100%;
+
+.postit-container {
   width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+
+  @media (min-width: 576px) {
+    width: 540px;
+  }
+  @media (min-width: 768px) {
+    width: 720px;
+  }
+  @media (min-width: 992px) {
+    width: 960px;
+  }
+  @media (min-width: 1200px) {
+    width: 1140px;
+  }
+}
+.postit-board-row {
   display: flex;
-  justify-content: center;
-  padding: 50px;
+  flex-wrap: wrap;
+  margin-right: -15px;
+  margin-left: -15px;
 }
 </style>
