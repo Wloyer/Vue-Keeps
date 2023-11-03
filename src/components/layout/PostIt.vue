@@ -26,27 +26,28 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, withDefaults } from "vue";
 import { useStore } from "vuex";
 import ButtonValidate from "./ButtonValidate.vue";
 import ButtonDelete from "./ButtonDelete.vue";
-import { defineProps } from "vue";
 
-const props = defineProps({
-  content: {
-    type: String,
-    default: "",
-  },
-  isInputMode: {
-    type: Boolean,
-    default: false,
-  },
-  index: Number,
-});
+// Props
+const props = withDefaults(
+  // eslint-disable-next-line no-undef
+  defineProps<{
+    content?: string;
+    isInputMode?: boolean;
+    index?: number;
+  }>(),
+  {
+    content: "",
+    isInputMode: false,
+  }
+);
+
 const store = useStore();
-// Data
 const Input = ref("");
-// Methods
+
 const actionPostIt = () => {
   store.commit("addPostIt", Input.value);
   Input.value = "";

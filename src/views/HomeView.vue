@@ -10,7 +10,7 @@
         :key="index"
         class="col-md-4"
       >
-        <PostIt :content="postItsContent" />
+        <PostIt :content="postItsContent" :index="index" />
       </div>
     </template>
   </MosaicPostIt>
