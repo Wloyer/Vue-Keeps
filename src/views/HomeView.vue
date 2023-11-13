@@ -1,3 +1,4 @@
+<!-- eslint-disable prettier/prettier -->
 <template>
   <MosaicPostIt>
     <template v-slot:postItInput>
@@ -15,7 +16,6 @@
     </template>
   </MosaicPostIt>
 </template>
-
 <script setup lang="ts">
 import MosaicPostIt from "../components/mosaicPostIt.vue";
 import PostIt from "../components/layout/PostIt.vue";
